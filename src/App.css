@@ -1,0 +1,10 @@
+
+
+
+.container-btn {
+    display: flex;
+    padding-top: 30%;
+    justify-content: space-around;
+    width: 100%;
+}
+
