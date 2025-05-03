@@ -4,10 +4,50 @@ import "./game/styles.css";
 import Screen from "./game/screen";
 import Pad from "./game/buttons/Pad";
 import Actions from "./game/buttons/Actions";
+import StartSelect from "./game/buttons/StartSelect";
+
 
 function App() {
   const [pokemones, setPokemones] = useState([]);
   const BASE_URL = "https://pokeapi.co/api/v2";
+  const [hoverPokemon, setHoverPokemon] = useState(0);
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
+  const [hp, setHp] = useState({ player: 100, enemy: 100 });
+
+  
+
+  const handlePress = (dir) => {
+    if (dir === 'right') {
+      setHoverPokemon((prev) => (prev + 1) % pokemones.length);
+    }
+    if (dir === 'left') {
+      setHoverPokemon((prev) => (prev - 1 + pokemones.length) % pokemones.length);
+    }
+  };
+  
+  
+const handleSelectPokemon = () => {
+  const pokemonSelected = pokemones[hoverPokemon];
+  const enemySelected = computerSelection();
+
+  if (pokemonSelected && enemySelected) {
+    setSelectedPokemon([pokemonSelected, enemySelected]);
+  }
+};
+  
+  const computerSelection = () => {
+    const randomIndex = Math.floor(Math.random() * pokemones.length);
+    return pokemones[randomIndex];
+  };
+  
+  const handleAttack = () => {
+    setHp((prev) => ({
+      ...prev,
+      enemy: Math.max(prev.enemy - 20, 0),
+    }));
+  };
+  
+
 
   const getDetails = async (results) => {
     try {
@@ -61,18 +101,18 @@ function App() {
           padding: "20px 0",
         }}
       >
-        <Screen pokemones={pokemones} />
+        <Screen pokemones={pokemones} hoverPokemon={hoverPokemon} selectedPokemon={selectedPokemon}/>
         <div className="container-btn">
-          <Pad />
+          <Pad handlePress={handlePress} />
           <div
             style={{
-              width: "60px",
-              height: "60px",
-              display: "flex",
-              backgroundColor: "black",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: "10px"
             }}
           ></div>
           <Actions />
+        </div>
+        <div>
+         <StartSelect handleSelectPokemon={handleSelectPokemon} />
         </div>
       </div>
     </div>

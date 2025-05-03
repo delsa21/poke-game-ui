@@ -1,26 +1,18 @@
-.start-select-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
+/* styles.css */
 
-.start-select-buttons {
-  display: flex;
-  gap: 5px;
-}
-
-.start-select-btn {
-  background-color: #c1bbc8;
+.action-btn {
+  background-color: #82165E;
   width: 40px;
-  height: 9px;
-  border-radius: 35%;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
 }
 
-.ab-container {
+.actions-container {
   width: 90px;
   height: 40px;
-  background-color: #c7c5ca;
+  background-color: #C7C5CA;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -29,87 +21,82 @@
   transform: rotate(-20deg);
 }
 
-.ab-btn {
-  background-color: #82165e;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-}
-.actions-container {
-  width: 90px;
-  height: 40px;
-  display: flex;
-  gap: 10px;
-  transform: rotate(-20deg);
-}
-
-.action-btn {
-  background-color: #821660;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-}
-.pad-container {
+/* PAD styles */
+.container-pad {
   width: 100px;
   height: 100px;
   display: flex;
+  justify-content: space-between;
   background-color: #c8c6ca;
-  position: relative;
+  display: flex;
+  align-items: center;
   border-radius: 50%;
+  margin-top: -80px;
 }
 
-.pad-btn {
-  background-color: #21202a;
+
+.pad-btn-up{
+  background-color: #21202A;
   color: white;
   width: 35px;
   height: 35px;
   border-radius: 50%;
   position: absolute;
-}
-
-.pad-btn.up {
-  top: 10%;
-  left: 50%;
   transform: translateX(-50%);
 }
-
-.pad-btn.down {
-  bottom: 10%;
-  left: 50%;
+.pad-btn-down{
+  background-color: #21202A;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
   transform: translateX(-50%);
 }
-
-.pad-btn.left {
-  top: 50%;
-  left: 10%;
+.pad-btn-left{
+  background-color: #21202A;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+.pad-btn-right{
+  background-color: #21202A;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
   transform: translateY(-50%);
 }
 
-.pad-btn.right {
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
+.container-central {
+  display: flex;
+  flex-direction: column;
 }
+
 .screen {
-  width: 90%;
-  height: 200px;
-  background-color: #9ca04c;
+  width: 290px;
+  height: 240px;
+  background-color: #c1628c;
   display: flex;
   flex-wrap: wrap;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.screen-text {
-  display: flex;
-  align-items: center;
+.container-screen {
+  padding-top: 5%;
+  padding-bottom: 25%;
   justify-content: center;
-  width: 100%;
-  flex-direction: column;
+  display: flex;
 }
-/* Add styles for StartSelect component */
-/* Removed duplicate styles for .start-select-container, .start-select-buttons, and .start-select-btn */
+
+.screen-text {
+  width: 100%;
+  height: 200px;
+  background-color: #c1628c; 
+}
+
